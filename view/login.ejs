@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+
+
+<link href='/style.css' rel='stylesheet' type='text/css'>
+<script src="index.js"></script>
+<script src='budget.js'></script>
+<meta name="viewport" content="width=device-width, initial-scale=0.7">
+
+<body id='page'>
+<div class='tracker'>
+<p class='title'>BUDGET-IT</p>
+<h1>Welcome!</h1>
+<h2>Login to your account</h2>
+<div id='formField'>
+
+<div>
+<ul>
+<% if (messages.error) {%>
+<li class='errorMessage'>
+<%= messages.error %>
+</li>
+<% } %>
+</ul>
+</div>
+<div id='form'>
+<form action='/login' method='POST'>
+<label for='username'>Username</label>
+<br>
+<input type='text' id='username' name='username' placeholder='Username'>
+<br>
+<label for='password'>Password</label>
+<br>
+<input type='password' id='password' name='password' placeholder='Password'>
+<br>
+<input type='submit' value='Login' class='button'>
+</form>
+<div>
+<ul>
+  <li class='message'>Don't have an account yet?</li>
+  <li><a href='/register'>Register here!</a></li>
+
+  </ul>
+  </div>
+</div>
+</div>
+
+  </div>
+  </body>
+
+  
+  

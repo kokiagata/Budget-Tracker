@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+
+<link href='/style.css' rel='stylesheet' type='text/css'>
+<script src="index.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=0.7">
+
+<body id='page'>
+<div class='parent'>
+<div class='tracker-dashboard'>
+  <h3 class='budgetTitle'>This Month's Budget</h3>
+
+  <div class='thisBudget'>
+  <span id='budgetNum'><%= '$' + budgetMonth %></span>
+  </div>
+  <h3 class='budgetTitle'>Remaining Budget</h3>
+
+<div class='remainingBudget'>
+  <span id='budgetNum'><%= '$' + budget %></span>
+  </div>
+  
+
+  <div class='dashboard'>
+  <div class='toggle'>
+  <div id='addBtn'><a href='#addExpense'>Add</a></div>
+  <div id='expenseBtn'><a href='#expenseList'>total Spent</a></div>
+  <div id='logout'>
+    <form action='/logout' method='POST'>
+    <input type='submit' value='Logout' id='logoutBtn'>
+    </form>
+ </div>
+  </div>
+
+ <br>
+ </br>
+ <div id='addExpense'>
+<h3>Enter Your Expense</h3>
+<form action='/expense-entered' method='POST'>
+<select id='expense' name='expenseType' placeholder='Type of expense'>
+<option value='' disabled selected hidden>Select a type of expense</option>
+<option value='Grocery'>Grocery</option>
+<option value='Restaurants'>Restaurants</option>
+<option value='Housing'>Housing</option>
+<option value='Gas'>Gas</option>
+<option value='Miscellaneous'>Miscellaneous</option>
+<option value='Business'>Business</option>
+<option value='Investment'>Investment</option>
+<option value='PersonalCare'>Personal Care</option>
+<option value='Entertainment'>Entertainment</option>
+</select>
+<input type='text' id='amount' name='expenseAmount' placeholder='Amount of expense'>
+<input type='text' id='time' name='expenseDate' placeholder='MM/DD/YYYY (optional)'>
+<input type='submit' value='Add Expense' class='button'>
+</form>
+</div>
+
+
+<div id='expenseList'>
+<div>
+<h3>Get Your Expense</h3>
+<form action='expense-total' method='POST'>
+<select id='category' name='category' placeholder='Category'>
+<option value='' disabled selected hidden>Category</option>
+<option value='Grocery'>Grocery</option>
+<option value='Restaurants'>Restaurants</option>
+<option value='Housing'>Housing</option>
+<option value='Gas'>Gas</option>
+<option value='Miscellaneous'>Miscellaneous</option>
+<option value='Business'>Business</option>
+<option value='Investment'>Investment</option>
+<option value='PersonalCare'>Personal Care</option>
+<option value='Entertainment'>Entertainment</option>
+<option value='All'>All</option>
+</select>
+<input type='text' id='monthSpent' name='monthSpent' placeholder='YYYY-MM (Optional)'>
+<input type='submit' value='How much did I spend?' class='button'>
+
+</form>
+<div id='totalSpent'>
+<%= total %>
+</div>
+
+</div>
+
+<h3><a href='/new-budget-added' id='editBudget'>Want to change the budget? Click here!</a></h3>
+</div>
+
+</div>
+</div>
+</body>
+
