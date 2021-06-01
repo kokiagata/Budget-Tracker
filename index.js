@@ -165,7 +165,7 @@ app.post('/expense-entered', (req, res)=>{
   let newExpenses = new expenseModel({
     expense: req.body.expenseAmount,
     detail: req.body.expenseType,
-    date: date.toISOString()
+    date: new Date(date).toISOString()
   })
 if(req.user === undefined){
   res.redirect('/login')
